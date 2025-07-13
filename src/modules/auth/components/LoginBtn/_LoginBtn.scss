@@ -1,0 +1,75 @@
+.login_card_container_form_button_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 22px;
+
+  .login_card_container_form_button {
+    font-family: 'Oxanium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #ffffff;
+    background: #f81dfb;
+    padding: 10px 16px;
+    width: 252px;
+    height: 43px;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #ff40ff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(248, 29, 251, 0.4);
+      font-weight: 600;
+    }
+  }
+
+  .login_card_container_form_button_shape {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .login_card_container_form_button_shape_left {
+      width: 5.64px;
+      height: 22px;
+      background: #f81dfb;
+      margin-right: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .login_card_container_form_button_shape_center {
+      height: 43px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        width: 5.64px;
+        height: 5.64px;
+        background: #f81dfb;
+        transition: all 0.3s ease;
+      }
+    }
+
+    .login_card_container_form_button_shape_right {
+      width: 5.64px;
+      height: 43px;
+      background: #f81dfb;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .login_card_container_form_button_shape_flipped {
+    transform: scaleX(-1);
+  }
+
+  &:hover .login_card_container_form_button_shape {
+    filter: drop-shadow(0 2px 8px rgba(248, 29, 251, 0.3));
+  }
+}

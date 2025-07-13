@@ -1,0 +1,41 @@
+.navbar_container {
+  width: 100%;
+  padding: 30px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  .navbar_container_input {
+    width: 380px;
+    height: 50px;
+    background-color: #1d0054;
+    border: none;
+    border-radius: 12px;
+
+    .ant-input {
+      background-color: #1d0054;
+      font-family: 'Assistant';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 24px;
+
+      color: #ffffff;
+
+      &::placeholder {
+        color: #999;
+      }
+    }
+  }
+
+  .navbar_container_search_icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+  }
+
+  .navbar_container_info {
+    
+  }
+}

@@ -1,0 +1,74 @@
+.login_card_container_form {
+  min-height: 623px;
+  width: 706px;
+  background: linear-gradient(
+    160.61deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 101.7%
+  );
+  border-width: 2.5px 0px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(17.915px);
+  border-radius: 42px;
+  padding: 70px 58px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 47px;
+
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+  }
+
+  @media only screen and (max-width: 420px) {
+    padding: 70px 30px;
+  }
+
+  .login_card_container_form_title {
+    font-family: 'Oxanium';
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 62px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .login_card_container_form_inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .login_card_container_form_account_group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .login_card_container_form_account_group_links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      @media only screen and (max-width: 550px) {
+        justify-content: center;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .login_card_container_form_account_group_links_item {
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #ffb636;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.login_card_container_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login_card_container_logo_img {
+    @media only screen and (max-width: 420px) {
+      width: 90%;
+    }
+  }
+}
