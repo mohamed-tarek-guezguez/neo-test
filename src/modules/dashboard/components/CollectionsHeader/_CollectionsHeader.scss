@@ -1,6 +1,7 @@
 .collections_header_container {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
@@ -20,6 +21,10 @@
     justify-content: center;
     align-items: center;
     gap: 24px;
+
+    @media only screen and (max-width: 550px) {
+      flex-wrap: wrap;
+    }
 
     .collections_header_container_actions_btn_export {
       width: 160px;

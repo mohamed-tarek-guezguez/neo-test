@@ -23,6 +23,11 @@
     .sidebar_container_icon {
       cursor: pointer;
     }
+
+    .sidebar_container_icon_active {
+      filter: invert(27%) sepia(96%) saturate(2878%) hue-rotate(291deg) brightness(104%)
+        contrast(101%);
+    }
   }
 
   .sidebar_container_settings {

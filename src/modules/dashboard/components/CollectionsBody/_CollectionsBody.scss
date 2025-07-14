@@ -1,19 +1,17 @@
-.view_icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.collections_body {
-  flex: 1;
-}
-
 .collections_table {
   .ant-table-container {
     background-color: #1d0054;
   }
 
+  .ant-table-container {
+    border-radius: 0;
+    border: none;
+  }
+
   .ant-table-header {
+    border-radius: 0;
+    border: none;
+
     .ant-table-cell {
       background-color: #1d0054;
       font-family: 'Poppins';
@@ -24,6 +22,9 @@
       text-align: center;
       color: #ffffff;
 
+      border-radius: 0;
+      border: none;
+
       &::before {
         display: none;
       }
@@ -33,4 +34,67 @@
       display: none;
     }
   }
+
+  .ant-table-tbody {
+    .ant-table-row {
+      &:hover {
+        td {
+          background-color: #2a0a6e !important;
+        }
+      }
+    }
+
+    tr.ant-table-row-selected {
+      > td {
+        background-color: #3a1b7a !important;
+      }
+
+      &:hover {
+        > td {
+          background-color: #4a2b8a !important;
+        }
+      }
+    }
+
+    > tr > td {
+      border-bottom: 1px solid #4a458e !important;
+    }
+
+    > tr:last-child > td {
+      border-bottom: none !important;
+    }
+
+    .ant-table-cell {
+      background-color: #1d0054;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      color: #ffffff;
+    }
+  }
+}
+
+.view_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.collections_body {
+  flex: 1;
+}
+
+.custom_table_cell {
+  background-color: #1d0054;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #ffffff;
 }

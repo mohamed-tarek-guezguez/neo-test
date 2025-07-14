@@ -1,6 +1,7 @@
 import { Table } from 'antd'
 import type { TableColumnsType, TableProps } from 'antd'
 import Eye from '../../assets/eye.svg'
+import { useEffect, useRef, useState } from 'react'
 
 interface DataType {
   key: React.Key
@@ -18,7 +19,7 @@ const CollectionsBody = () => {
     {
       title: 'Collection Id',
       dataIndex: 'CollectionId',
-      render: (text) => <span>#{text}</span>,
+      render: (text) => <>#{text}</>,
       width: 120,
       onHeaderCell: () => ({
         style: { whiteSpace: 'nowrap' },
@@ -224,19 +225,44 @@ const CollectionsBody = () => {
     },
   }
 
+  const divRef = useRef<HTMLDivElement | null>(null)
+  const [height, setHeight] = useState<number | null>(null)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (divRef.current) {
+        setHeight(divRef.current.offsetHeight)
+      }
+    }
+
+    const resizeObserver = new ResizeObserver(() => handleResize())
+    if (divRef.current) {
+      resizeObserver.observe(divRef.current)
+    }
+
+    return () => {
+      if (divRef.current) {
+        resizeObserver.unobserve(divRef.current)
+      }
+    }
+  }, [])
+
   return (
-    <div className="collections_body">
-      <Table<DataType>
-        rowSelection={{ type: 'checkbox', ...rowSelection }}
-        columns={columns}
-        dataSource={data}
-        pagination={false}
-        scroll={{ x: 'max-content', y: 'calc(100vh - 400px)' }}
-        bordered={false}
-        className="collections_table"
-        rootClassName="collections_table_root"
-        rowClassName="collections_table_row"
-      />
+    <div className="collections_body" ref={divRef}>
+      {height && (
+        <Table<DataType>
+          rowSelection={{ type: 'checkbox', ...rowSelection }}
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          // scroll={{ x: 'max-content', y: 'calc(100vh - 400px)' }}
+          scroll={{ x: 'max-content', y: height - 60 }}
+          bordered={false}
+          className="collections_table"
+          rootClassName="collections_table_root"
+          rowClassName="collections_table_row"
+        />
+      )}
     </div>
   )
 }

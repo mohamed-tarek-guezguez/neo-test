@@ -14,18 +14,25 @@ type RouteConfig = {
 } & RouteProps
 
 const routes: RouteConfig[] = [
-  {
-    exact: true,
-    guard: AuthGuard,
-    path: '/dashboard',
-    component: lazy(() => import('../features/Test')),
-    layout: MainLayout,
-  },
+  // {
+  //   exact: true,
+  //   guard: AuthGuard,
+  //   path: '/dashboard',
+  //   component: lazy(() => import('../features/Test')),
+  //   layout: MainLayout,
+  // },
   {
     exact: true,
     guard: GuestGuard,
     path: '/dashboard/collections-list',
     component: lazy(() => import('../features/Collections/Collections')),
+    layout: MainLayout,
+  },
+  {
+    exact: true,
+    guard: GuestGuard,
+    path: '/dashboard',
+    component: lazy(() => import('../features/Apps/Apps')),
     layout: MainLayout,
   },
 ]
