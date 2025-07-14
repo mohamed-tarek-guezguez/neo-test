@@ -1,32 +1,37 @@
-# Base image
-FROM node:14 as builder
+# -----------------------------
+# Builder Stage
+# -----------------------------
+FROM node:20-alpine AS builder
 
-# Working directory
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy only package.json and lock file first for caching
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy app files
+# Copy the rest of the app
 COPY . .
 
-# Build the app
+# Build the application (e.g., React, Vue, etc.)
 RUN npm run build
 
-# Production image
-FROM nginx:1.21.1-alpine
 
-# Copy build files to nginx directory
-COPY --from=builder /app/build /usr/share/nginx/html
+# -----------------------------
+# Production Stage
+# -----------------------------
+FROM nginx:1.27.1-alpine
 
-# Copy nginx configuration file
+# Copy built app from the builder stage
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Replace default Nginx config with custom one
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
 EXPOSE 80
 
-# Start nginx server
+# Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]

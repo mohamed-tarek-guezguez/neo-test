@@ -1,9 +1,11 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  web:
-    build: .
+  front:
+    container_name: front
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - '3000:80'
+    restart: unless-stopped
