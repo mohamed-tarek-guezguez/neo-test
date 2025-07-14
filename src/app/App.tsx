@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div id={theme}>
       <Helmet>
-        <title>Welcome - GoMyDesk</title>
+        <title>Welcome - KOLCT</title>
       </Helmet>
 
       {renderRoutes(routes)}

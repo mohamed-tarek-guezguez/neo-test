@@ -17,9 +17,9 @@ const RegisterForm = () => {
     validationSchema: Yup.object().shape({
       email: Yup.string().required('Email is required').email('Invalid email format'),
       password: Yup.string().required('Password is required').min(6, 'Password is too short!'),
-      // confirmPassword: Yup.string()
-      //   .oneOf([Yup.ref('password')], 'Passwords must match')
-      //   .required('Confirm Password is required'),
+      confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password')], 'Passwords must match')
+        .required('Confirm Password is required'),
     }),
     onSubmit: (values) => {
       // Handle login logic here

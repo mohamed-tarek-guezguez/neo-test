@@ -27,12 +27,12 @@ const ForgotPasswordForm = () => {
       <div className="login_card_container_form_inputs">
         <div className="login_card_container_form_account_group">
           <Input
-            name="confirmPassword"
+            name="email"
             formik={formik}
             variant="secondary"
             placeholder=""
-            label="Confirm Password"
-            type="password"
+            label="Email"
+            type="text"
           />
 
           <div className="login_card_container_form_account_group_links">
