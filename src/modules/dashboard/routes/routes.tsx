@@ -25,7 +25,7 @@ const routes: RouteConfig[] = [
     exact: true,
     guard: GuestGuard,
     path: '/dashboard/collections-list',
-    component: lazy(() => import('../features/Test')),
+    component: lazy(() => import('../features/Collections/Collections')),
     layout: MainLayout,
   },
 ]

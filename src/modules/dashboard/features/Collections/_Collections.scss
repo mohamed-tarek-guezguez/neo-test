@@ -1,0 +1,21 @@
+.collections_container {
+  padding-bottom: 27px;
+  padding-left: 27px;
+  padding-right: 41px;
+  width: 100%;
+  height: 100%;
+
+  .collections_container_body {
+    width: 100%;
+    height: 100%;
+    background-color: #1d0054;
+    padding: 24px 21px;
+    border-radius: 22px;
+    border: 1px solid #41308d;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+  }
+}

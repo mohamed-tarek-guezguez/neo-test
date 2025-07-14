@@ -1,0 +1,46 @@
+.collections_footer_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  .collections_footer_container_arrow_prev {
+    cursor: pointer;
+    transform: scaleX(-1);
+  }
+
+  .collections_footer_container_arrow_next {
+    cursor: pointer;
+  }
+
+  .collections_footer_container_items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    .collections_footer_container_items_item {
+      width: 31px;
+      height: 31px;
+      border: 1px solid #f81dfb;
+      font-family: 'Oxanium';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-transform: capitalize;
+      color: #f81dfb;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .collections_footer_container_items_item_active {
+      background-color: #f81dfb;
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.view_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collections_body {
+  flex: 1;
+}
+
+.collections_table {
+  .ant-table-container {
+    background-color: #1d0054;
+  }
+
+  .ant-table-header {
+    .ant-table-cell {
+      background-color: #1d0054;
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      color: #ffffff;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .ant-table-cell-scrollbar {
+      display: none;
+    }
+  }
+}
