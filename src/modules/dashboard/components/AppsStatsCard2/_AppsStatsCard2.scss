@@ -1,0 +1,79 @@
+.apps_stats_container_item_2_card {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #2f1177;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+
+  .apps_stats_container_item_2_card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    .apps_stats_container_item_2_card_header_title {
+      font-family: 'Assistant';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 24px;
+      color: #ffffff;
+    }
+
+    .apps_stats_container_item_2_card_header_seeall {
+      font-family: 'Assistant';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 20px;
+      color: #ff04b4;
+      cursor: pointer;
+    }
+  }
+
+  .apps_stats_container_item_2_card_body {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 42px;
+    color: #ffffff;
+  }
+
+  .apps_stats_container_item_2_card_footer {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: #ffffff;
+
+    span {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      color: #ff8f1f;
+    }
+  }
+
+  .apps_stats_container_item_2_card_footer_danger {
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #fb1d1d;
+
+    span {
+      color: #fff;
+    }
+  }
+}
