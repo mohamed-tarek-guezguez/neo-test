@@ -256,7 +256,7 @@ const CollectionsBody = () => {
           dataSource={data}
           pagination={false}
           // scroll={{ x: 'max-content', y: 'calc(100vh - 400px)' }}
-          scroll={{ x: 'max-content', y: height - 60 }}
+          scroll={{ x: 'max-content', y: height - 55 }}
           bordered={false}
           className="collections_table"
           rootClassName="collections_table_root"

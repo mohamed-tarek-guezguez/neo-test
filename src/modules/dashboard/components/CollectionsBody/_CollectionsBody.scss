@@ -57,7 +57,7 @@
     }
 
     > tr > td {
-      border-bottom: 1px solid #4a458e !important;
+      border-bottom: 1px solid transparent !important;
     }
 
     > tr:last-child > td {
@@ -65,7 +65,7 @@
     }
 
     .ant-table-cell {
-      background-color: #1d0054;
+      background-color: #23065f;
       font-family: 'Poppins';
       font-style: normal;
       font-weight: 400;
@@ -73,7 +73,28 @@
       line-height: 21px;
       text-align: center;
       color: #ffffff;
+
+      &:first-child {
+        border-radius: 18px 0 0 18px;
+      }
+
+      &:last-child {
+        border-radius: 0 18px 18px 0;
+      }
     }
+  }
+
+  .ant-table-body {
+    table {
+      // border-collapse: collapse;
+      border-collapse: separate !important;
+      border-spacing: 0 10px !important;
+      margin-top: -12px;
+    }
+  }
+
+  .ant-checkbox-inner::after {
+    display: none !important;
   }
 }
 
