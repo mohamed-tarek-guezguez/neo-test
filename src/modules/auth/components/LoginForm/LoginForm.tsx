@@ -1,11 +1,14 @@
 import Input from '@src/modules/shared/components/Input/Input'
 import { ILogin } from '../../types/login'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import LoginBtn from '../LoginBtn/LoginBtn'
+import { message } from 'antd'
 
 const LoginForm = () => {
+  const navigate = useNavigate()
+
   const initialValues: ILogin = {
     email: '',
     password: '',
@@ -19,6 +22,8 @@ const LoginForm = () => {
     }),
     onSubmit: (values) => {
       // Handle login logic here
+      message.success('Welcome back')
+      navigate('/dashboard')
     },
   })
 

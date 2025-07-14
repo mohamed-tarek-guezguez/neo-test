@@ -6,11 +6,13 @@
 
   .collections_footer_container_arrow_prev {
     cursor: pointer;
+    user-select: none;
     transform: scaleX(-1);
   }
 
   .collections_footer_container_arrow_next {
     cursor: pointer;
+    user-select: none;
   }
 
   .collections_footer_container_items {
@@ -36,6 +38,7 @@
       color: #f81dfb;
       border-radius: 50%;
       cursor: pointer;
+      user-select: none;
     }
 
     .collections_footer_container_items_item_active {
