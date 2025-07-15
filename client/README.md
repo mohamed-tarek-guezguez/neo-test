@@ -49,3 +49,12 @@ docker-compose down
 ```
 
 
+### for testing purposes
+
+routes: {
+  "/login": "Login",
+  "/register": "Register",
+  "/forgot-password": "Forgot Password",
+  "/dashboard": "Apps Page",
+  "/dashboard/collections": "Collections Page",
+}
