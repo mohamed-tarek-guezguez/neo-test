@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { clearTokens, setTokens } from '../utils/token'
-import { login, logout } from './authThunk'
+import { login } from './authThunk'
 
 export interface AuthState {
   status: string
@@ -9,7 +9,7 @@ export interface AuthState {
   isInitialised: boolean
   user: {
     id: string
-    name: string
+    username: string
     email: string
   } | null
   error: string | null
@@ -36,6 +36,12 @@ const authSlice = createSlice({
     restore: (state) => {
       state.error = null
     },
+    logoutUser: (state) => {
+      state.error = null
+      state.isAuthenticated = false
+      state.user = null
+      clearTokens()
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(login.pending, (state) => {
@@ -43,34 +49,23 @@ const authSlice = createSlice({
       state.status = 'loading'
     })
     builder.addCase(login.fulfilled, (state, action: PayloadAction<any>) => {
-      const { accessToken, refreshToken, user } = action.payload.payload
-      setTokens(accessToken, refreshToken)
+      const { access, refresh } = action.payload
+      setTokens(access, refresh)
       state.isAuthenticated = true
-      state.user = user
+      state.user = {
+        id: 'test',
+        username: 'test',
+        email: 'test',
+      }
       state.status = 'succeeded'
     })
     builder.addCase(login.rejected, (state, action: PayloadAction<any>) => {
       state.error = action?.payload
       state.status = 'failed'
     })
-
-    builder.addCase(logout.pending, (state) => {
-      state.error = null
-      state.status = 'loading'
-    })
-    builder.addCase(logout.fulfilled, (state) => {
-      state.isAuthenticated = false
-      state.user = null
-      state.status = 'succeeded'
-      clearTokens()
-    })
-    builder.addCase(logout.rejected, (state, action: PayloadAction<any>) => {
-      state.error = action?.payload
-      state.status = 'failed'
-    })
   },
 })
 
-export const { initialise, restore } = authSlice.actions
+export const { initialise, restore, logoutUser } = authSlice.actions
 
 export default authSlice.reducer

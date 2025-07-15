@@ -23,7 +23,7 @@ Before running this project, make sure you have the following installed:
 To start the development server:
 
 ```bash
-npm start
+npm run dev
 ```
 
 The application will open in your browser at [http://localhost:3000](http://localhost:3000).
@@ -39,22 +39,23 @@ docker-compose up
 This will build and start the application in a containerized environment. The app will be available at [http://localhost:3000](http://localhost:3000).
 
 To run in detached mode:
+
 ```bash
 docker-compose up -d
 ```
 
 To stop the containers:
+
 ```bash
 docker-compose down
 ```
 
-
 ### for testing purposes
 
 routes: {
-  "/login": "Login",
-  "/register": "Register",
-  "/forgot-password": "Forgot Password",
-  "/dashboard": "Apps Page",
-  "/dashboard/collections": "Collections Page",
+"/login": "Login",
+"/register": "Register",
+"/forgot-password": "Forgot Password",
+"/dashboard": "Apps Page",
+"/dashboard/collections": "Collections Page",
 }

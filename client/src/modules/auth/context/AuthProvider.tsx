@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import jwtDecode from 'jwt-decode'
 import axiosInstance from '../utils/axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { clearTokens, getTokens } from '../utils/token'
@@ -12,21 +11,11 @@ interface AuthProviderProps {
   children: React.ReactNode
 }
 
-interface JwtPayload {
-  exp: number
-}
-
 const AuthProvider = ({ children }: AuthProviderProps) => {
   const isMounted = useIsMountedRef()
 
   const { isInitialised } = useSelector((state: RootState) => state.auth)
   const dispatch = useDispatch()
-
-  const isValidToken = (token: string) => {
-    const decoded: JwtPayload = jwtDecode(token)
-    const currentTime = Date.now() / 1000
-    return decoded.exp > currentTime
-  }
 
   useEffect(() => {
     if (!isMounted.current) {
@@ -35,9 +24,9 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
     async function fetchUser() {
       const { refresh_token } = getTokens()
-      if (refresh_token && isValidToken(refresh_token)) {
-        const response = await axiosInstance.get('/api/auth/me')
-        const user = response.data.payload
+      if (refresh_token) {
+        const response = await axiosInstance.get('/api/auth/profile/')
+        const user = response.data
         dispatch(initialise({ isAuthenticated: true, user }))
       } else {
         dispatch(initialise({ isAuthenticated: false, user: null }))

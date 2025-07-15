@@ -21,7 +21,7 @@ const RegisterForm = () => {
         .oneOf([Yup.ref('password')], 'Passwords must match')
         .required('Confirm Password is required'),
     }),
-    onSubmit: (values) => {
+    onSubmit: (_values) => {
       // Handle login logic here
     },
   })

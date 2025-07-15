@@ -5,9 +5,14 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import LoginBtn from '../LoginBtn/LoginBtn'
 import { message } from 'antd'
+import { useAppDispatch } from '@src/modules/shared/store'
+import { login } from '../../data/authThunk'
+import { useState } from 'react'
 
 const LoginForm = () => {
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const [isLoading, setIsLoading] = useState(false)
 
   const initialValues: ILogin = {
     email: '',
@@ -21,9 +26,21 @@ const LoginForm = () => {
       password: Yup.string().required('Password is required').min(6, 'Password is too short!'),
     }),
     onSubmit: (values) => {
-      // Handle login logic here
-      message.success('Welcome back')
-      navigate('/dashboard')
+      setIsLoading(true)
+
+      dispatch(login(values))
+        .unwrap()
+        .then(() => {
+          message.success('Welcome back')
+          navigate('/dashboard')
+        })
+        .catch((error) => {
+          message.error(error?.message || 'Login failed')
+        })
+        .finally(() => {
+          setIsLoading(false)
+          formik.resetForm()
+        })
     },
   })
 
@@ -62,7 +79,7 @@ const LoginForm = () => {
           </div>
         </div>
 
-        <LoginBtn>LOG IN</LoginBtn>
+        <LoginBtn isLoading={isLoading}>LOG IN</LoginBtn>
       </div>
     </form>
   )

@@ -7,10 +7,19 @@ import i5 from '../../assets/icons/sidebar/i5.svg'
 import settings from '../../assets/icons/sidebar/settings.svg'
 import logout from '../../assets/icons/sidebar/logout.svg'
 import { Tooltip } from 'antd'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useAppDispatch } from '../../store'
+import { logoutUser } from '@src/modules/auth/data/authSlice'
 
 const Sidebar = () => {
   const { pathname } = useLocation()
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    dispatch(logoutUser())
+    navigate('/login', { replace: true })
+  }
 
   return (
     <div className="sidebar_container">
@@ -66,7 +75,12 @@ const Sidebar = () => {
         </Tooltip>
 
         <Tooltip placement="right" title={'Logout'}>
-          <img src={logout} alt="logout" className="sidebar_container_icon" />
+          <img
+            src={logout}
+            alt="logout"
+            className="sidebar_container_icon"
+            onClick={handleLogout}
+          />
         </Tooltip>
       </div>
     </div>

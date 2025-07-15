@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import MainLayout from '@src/modules/shared/layout/MainLayout/MainLayout'
-import AuthGuard from '@src/modules/shared/guards/AuthGuard'
+// import AuthGuard from '@src/modules/shared/guards/AuthGuard'
 import { RouteProps } from 'react-router-dom'
 import { Fragment, lazy } from 'react'
-import GuestGuard from '@src/modules/shared/guards/GuestGuard'
 
 type RouteConfig = {
   exact: boolean | null
@@ -23,14 +22,14 @@ const routes: RouteConfig[] = [
   // },
   {
     exact: true,
-    guard: GuestGuard,
+    // guard: AuthGuard,
     path: '/dashboard/collections-list',
     component: lazy(() => import('../features/Collections/Collections')),
     layout: MainLayout,
   },
   {
     exact: true,
-    guard: GuestGuard,
+    // guard: AuthGuard,
     path: '/dashboard',
     component: lazy(() => import('../features/Apps/Apps')),
     layout: MainLayout,

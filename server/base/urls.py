@@ -1,5 +1,4 @@
 from django.contrib import admin
-from core.views import UserProfileView
 from django.urls import path, include, re_path
 from rest_framework import routers, permissions
 from drf_yasg.views import get_schema_view
@@ -8,6 +7,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from core.views import UserProfileView
 
 from dashboard.views import CollectionViewSet, CardViewSet, OrderViewSet, DashboardKPIsView
 

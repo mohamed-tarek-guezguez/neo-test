@@ -1,45 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axiosInstance from '../utils/axios'
-import { LoginPayload, RegisterPayload } from './authTypes'
+import { ILogin } from '../types/login'
 
-export const login = createAsyncThunk(
-  'auth/login',
-  async (query: LoginPayload, { rejectWithValue }) => {
-    try {
-      const response = await axiosInstance.post(`/api/auth/login`, query)
-
-      if (response.status === 200) {
-        return response.data
-      }
-
-      throw new Error(response.statusText)
-    } catch (err: any) {
-      return rejectWithValue(err)
-    }
-  }
-)
-
-export const register = createAsyncThunk(
-  'auth/register',
-  async (query: RegisterPayload, { rejectWithValue }) => {
-    try {
-      const response = await axiosInstance.post(`/api/auth/register`, query)
-
-      if (response.status === 201) {
-        return response.data
-      }
-
-      throw new Error(response.statusText)
-    } catch (err: any) {
-      return rejectWithValue(err)
-    }
-  }
-)
-
-export const logout = createAsyncThunk('auth/logout', async (_, { rejectWithValue }) => {
+export const login = createAsyncThunk('auth/login', async (query: ILogin, { rejectWithValue }) => {
   try {
-    const response = await axiosInstance.get(`/api/auth/logout`)
+    const response = await axiosInstance.post(`/api/auth/token/`, {
+      username: query.email,
+      password: query.password,
+    })
 
     if (response.status === 200) {
       return response.data

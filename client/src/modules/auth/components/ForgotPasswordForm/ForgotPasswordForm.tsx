@@ -15,7 +15,7 @@ const ForgotPasswordForm = () => {
     validationSchema: Yup.object().shape({
       email: Yup.string().required('Email is required').email('Invalid email format'),
     }),
-    onSubmit: (values) => {
+    onSubmit: (_values) => {
       // Handle login logic here
     },
   })
